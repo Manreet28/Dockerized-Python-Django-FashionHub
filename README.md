@@ -55,21 +55,18 @@ Setup Instructions
 Clone the repository to your local machine:
 
 bash
-Copy code
 git clone https://github.com/Manreet28/Python-Django-Project.git
 cd Python-Django-Project
 2. Build and Run the Docker Container
 Build the Docker image and start the container:
 
 bash
-Copy code
 docker build -t django-fashion-app .
 docker run -p 8000:8000 django-fashion-app
 3. Run Database Migrations
 To set up the database, open a terminal inside the running container and run the migrations:
 
 bash
-Copy code
 docker exec -it <container_id> python manage.py migrate
 Replace <container_id> with the ID of your running container.
 
@@ -77,7 +74,6 @@ Replace <container_id> with the ID of your running container.
 To access the Django admin panel, create a superuser by running:
 
 bash
-Copy code
 docker exec -it <container_id> python manage.py createsuperuser
 5. Access the Application
 Once running, the application will be accessible at:
@@ -88,7 +84,6 @@ Dockerization Details
 The Dockerfile defines a Python 3.8-slim-buster environment, installs dependencies, and serves the Django app on port 8000. Here’s the Dockerfile:
 
 Dockerfile
-Copy code
 # Use Python 3.8 as the base image
 FROM python:3.8-slim-buster
 
@@ -111,18 +106,15 @@ Usage
 To run the application in development mode:
 
 bash
-Copy code
 docker build -t django-fashion-app .
 docker run -p 8000:8000 django-fashion-app
 To stop the container, you can find the container ID using:
 
 bash
-Copy code
 docker ps
 Then stop it with:
 
 bash
-Copy code
 docker stop <container_id>
 Contributing
 Contributions are welcome! Please fork the repository, create a new branch for your feature or fix, and submit a pull request.
